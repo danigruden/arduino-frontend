@@ -1,0 +1,36 @@
+<h1 style="text-align: center">Main panel</h1>
+
+<div class="controls-container">
+  <div class="color-picker">
+    <p>Current LED color:</p>
+    <input disabled class="color-box" [style.background-color]="colorrgba" />
+    <h5>Pick a new color:</h5>
+    <color-hue-picker
+    [color]="state" (onChangeComplete)="colorChangeComplete($event)"
+    ></color-hue-picker>
+  </div>
+  <br />
+  <p>Current text:</p>
+  <h4>{{ displayedText }}</h4>
+  <textarea
+    class="input-group"
+    placeholder="Input new text"
+    #textInput
+    type="text"
+    maxlength="32"
+  ></textarea>
+  <br />
+  <button class="btn" (click)="onSetNewDisplayText(textInput.value)">
+    Set new text
+  </button>
+  <br />
+  <h5>Current temperature:</h5>
+  <h4>{{ tempData }}°C</h4>
+  <br />
+  <h5>Current sound levels:</h5>
+  <h4>{{ soundData }}</h4>
+  <br />
+  <h5>Loudest:</h5>
+  <h4>{{ soundLoudest }}</h4>
+  <br />
+</div>
